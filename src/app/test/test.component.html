@@ -1,0 +1,48 @@
+<!-- String interPolation Binding
+<h1 class="h1"> {{h1}}</h1>
+<!-- property Binding -->
+<button class="btn btn-primary" [disabled]="!disable" (click)="onServer()"> Click</button>
+<p>{{serverOff}}</p>
+<!-- Event Binding -->
+<h3>Event Binding</h3>
+<input type="text" class="form-control w-25" (input)="print($event)">
+<!-- <p>{{myvalue}}</p> -->
+<!-- Tow Way-Binding -->
+<h3> Tow Way-Binding</h3>
+<input type="text" class="form-control w-25" [(ngModel)]="test">
+<p>{{test}}</p>
+<!-- Example -->
+<h4>Example</h4>
+<input type="text" class="form-control w-25" [(ngModel)]="myvalue">
+<button class="btn btn-primary" (click)="add()" [disabled]="myvalue===''">Add</button>
+<ul class="list-group">
+  <li *ngFor="let item of data" class="mt-3 list-group-item w-25">
+    {{item}} <button class="btn btn-danger mx-5" (click)="remove(item)"> delete</button>
+  </li>
+</ul>
+<!-- Pipe  -->
+<p>{{date|date:'shortTime'}}</p>
+<!-- custom pipe -->
+<p>{{h1|pip}}</p>
+<!-- Exampel course -->
+<h1> Example Course</h1>
+<input type="text" placeholder="Enter Width" [(ngModel)]="w">
+<input type="text" placeholder=" Enter Hight" [(ngModel)]="h">
+<input type="text" placeholder=" Enter Margin" [(ngModel)]="m">
+<input type="color" placeholder=" BG color" [(ngModel)]="bg">
+<div [style.width]="w+'px'" [style.height]="h+'px'" [style.margin]="m+'px'" [style.background]="bg" class="d"></div>
+<hr>
+<br>
+<div class="container col-6">
+  <label> Your Name</label>
+  <div class="form-group">
+    <input type="text" class="form-control" ngModel required minlength="3" #userName="ngModel"
+      (keyup)="printt(userName)">
+    <div *ngIf="userName.touched&&userName.invalid" class="alert alert-danger">
+      <div *ngIf="userName.errors.required">Your Vaild Data</div>
+      <div *ngIf="userName.errors.minlength"> data less than 3 char</div>
+      <div *ngIf="userName.errors.maxlength"> data more than 20 char</div>
+      <div></div>
+    </div>
+  </div>
+</div> 
